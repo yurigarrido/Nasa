@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import {styled} from '../../../stitches.config';
+import { styled } from '../../../stitches.config'
 
 export const Container = styled('div', {
-	background: '$card',
+  background: '$card',
 
-	color: '$cardText',
+  color: '$cardText',
 
-	borderRadius: '$md',
+  borderRadius: '$md',
 
-	div: {
-		padding: '$8',
-	},
-});
+  div: {
+    padding: '$8',
+  },
+})
