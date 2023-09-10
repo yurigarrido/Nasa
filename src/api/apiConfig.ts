@@ -1,7 +1,8 @@
-import axios from 'axios'
+/* eslint-disable @typescript-eslint/naming-convention */
+import axios from 'axios';
 
-const baseURL = 'https://api.instabuy.com.br/apiv3'
+const baseURL = 'https://api.nasa.gov/';
 
 export const api = axios.create({
-  baseURL,
-})
+	baseURL,
+});
