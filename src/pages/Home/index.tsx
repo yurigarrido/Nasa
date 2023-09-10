@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Container, Main, DateContainer, Content} from './styles';
+import {Container, Main, DateContainer, Content, Card, Title, Description, Image} from './styles';
 import {getAsronomicalPhoto} from '../../api/getAstronomicalPhoto';
 import {type Astronomical} from '../../models/Astronomical';
 import {PencilSimple, Check} from 'phosphor-react';
@@ -13,12 +13,15 @@ export function Home() {
 	const [isEditDate, setIsEditDate] = useState(false);
 	const [date, setDate] = useState('');
 	const [openImageViewer, setOpenImageViewer] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setIsLoading(true);
 			const result = await getAsronomicalPhoto();
 
 			setAstronomicalData(result);
+			setIsLoading(false);
 		};
 
 		fetchData();
@@ -37,11 +40,14 @@ export function Home() {
 			return;
 		}
 
+		setIsLoading(true);
+
 		setIsEditDate(false);
 		setAstronomicalData(undefined);
-		console.log(date);
 		const result = await getAsronomicalPhoto(date);
 		setAstronomicalData(result);
+
+		setIsLoading(false);
 	};
 
 	const handleExpandImage = () => {
@@ -54,49 +60,61 @@ export function Home() {
 
 	return (
 		<Container>
-			{astronomicalData
-			&& <ImageViewer open={openImageViewer} close={handleCloseExapandImage} src={astronomicalData.url}/>
-			}
-			{astronomicalData
-			&& <Main>
-				<Content>
-					<DateContainer>
-						<span>Astronomical photo of the day {' '}
-							{isEditDate
-								? <><input type='date' value={date}
-									onChange={(({target}) => {
-										setDate(moment(target.value).format('YYYY-MM-DD'));
-									})}/> {' '} <Button css={{color: '$cardText'}} onClick={
-									saveNewDate
+			{!isLoading && astronomicalData
+				? <>
+					<Main>
+						<Content>
+							<DateContainer>
+								<span>Astronomical photo of the day {' '}
+									{isEditDate
+										? <>
+											<input type='date' value={date}
+												onChange={(({target}) => {
+													setDate(moment(target.value).format('YYYY-MM-DD'));
+												})}/> {' '} <Button css={{color: '$cardText'}} onClick={
+												saveNewDate
 
-								} title='Salvar data'>
-									<Check size={20} />
-								</Button>
-								</>
-								: <>
-									<strong>
-										{moment(currentDate).format('LL')}
-									</strong> {' '}
-									<Button css={{color: '$cardText'}} onClick={() => {
-										setIsEditDate(true);
-									}} title='Alterar data'>
-										<PencilSimple size={20} />
-									</Button>
-								</>
-							} </span>
+											} title='Salvar data'>
+												<Check size={20} />
+											</Button>
+										</>
+										: <span>
+											<strong>
+												{moment(currentDate).format('LL')}
+											</strong> {' '}
+											<Button css={{color: '$cardText'}} onClick={() => {
+												setIsEditDate(true);
+											}} title='Alterar data'>
+												<PencilSimple size={20} />
+											</Button>
+										</span>
+									}
+								</span>
 
-					</DateContainer>
+							</DateContainer>
 
-					<h1>{astronomicalData.title}</h1>
+							<h1>{astronomicalData.title}</h1>
 
-					<img loading='eager' title='click to expand' onClick={handleExpandImage} src={astronomicalData.url} alt={astronomicalData.title} />
-					<div>
-						<span>{astronomicalData.description}</span>
-						<br />
+							<img loading='eager' title='click to expand' onClick={handleExpandImage} src={astronomicalData.url} alt={astronomicalData.title} />
+							<div>
+								<span>{astronomicalData.description}</span>
+								<br />
 					copyright: {astronomicalData.copyright}
-					</div>
-				</Content>
-			</Main>
+							</div>
+						</Content>
+					</Main>
+					<ImageViewer open={openImageViewer} close={handleCloseExapandImage} src={astronomicalData.url}/>
+				</>
+
+				:				(
+					<Card>
+						<Title/>
+						<Title/>
+
+						<Image/>
+
+						<Description/>
+					</Card>)
 			}
 
 		</Container>);

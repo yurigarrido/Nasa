@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import {styled} from '../../../stitches.config';
+import {shimmerAnimation} from '../../components/shimmer';
 
 export const Container = styled('div', {
 	display: 'flex',
@@ -63,6 +64,8 @@ export const Main = styled('main', {
 	img: {
 		cursor: 'pointer',
 		margin: '$8 0',
+
+		background: '$gray3',
 	},
 
 	borderRadius: '$md',
@@ -78,3 +81,43 @@ export const DateContainer = styled('div', {
 
 });
 
+export const Card = styled('div', {
+	marginTop: '$8',
+	animation: `${shimmerAnimation} 2s infinite `,
+	background: '$gray2',
+	width: '768px',
+	borderRadius: '$md',
+
+	padding: '$8',
+
+	'@mobile': {
+		width: '250px',
+	},
+});
+
+export const Title = styled('div', {
+	width: '30rem',
+	height: '4rem',
+	animation: `${shimmerAnimation} 2s infinite `,
+	background: '$gray3',
+	borderRadius: '$md',
+	marginBottom: '$4',
+});
+
+export const Image = styled('div', {
+	width: '100%',
+	height: '50rem',
+	animation: `${shimmerAnimation} 2s infinite `,
+	background: '$gray3',
+	borderRadius: '$md',
+	marginBottom: '$4',
+
+});
+
+export const Description = styled('div', {
+	width: '100%',
+	height: '15rem',
+	animation: `${shimmerAnimation} 2s infinite `,
+	background: '$gray3',
+	borderRadius: '$md',
+});
