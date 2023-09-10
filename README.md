@@ -1,6 +1,6 @@
 # Nasa APP
 
-[Ver aplicação ]([https://instabuy-xi.vercel.app/](https://nasa-g4c3er3m0-yurigarrido.vercel.app))
+[Ver aplicação ](https://nasa-g4c3er3m0-yurigarrido.vercel.app)
 
 
 - [x] mostrar os dados da foto astronômica do dia (endpoint -> APOD) 
