@@ -1,6 +1,6 @@
 import {X} from 'phosphor-react';
 import {PortalContainer} from '../portal';
-import {Menu, MenuHeader} from './styles';
+import {Menu, MenuHeader, TabsContainer} from './styles';
 import {Button} from '../button/styles';
 import {useOutsideClick} from '../../hooks/useOutsideClick';
 import {tabs} from './constants';
@@ -31,9 +31,9 @@ export const Sidebar = ({open, close}: SidebarProps) => {
 					<span>Nasa</span>
 					<Button onClick={close}><X size={24 }/></Button>
 				</MenuHeader>
-				<div>
+				<TabsContainer>
 					{tabs.map(tab => <Tab key={tab.id} title={tab.title} path={tab.id}/>)}
-				</div>
+				</TabsContainer>
 			</Menu>
 		</PortalContainer>
 	);

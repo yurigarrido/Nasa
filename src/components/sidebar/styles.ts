@@ -45,6 +45,13 @@ export const Menu = styled('div', {
 	},
 });
 
+export const TabsContainer = styled('div', {
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'flex-start',
+	gap: '$8',
+});
+
 export const MenuHeader = styled('div', {
 	display: 'flex',
 	justifyContent: 'space-between',

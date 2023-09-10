@@ -1,10 +1,13 @@
-import {Home} from './pages/Home';
 import {globalStyles} from '../stitches.config';
+import {Router} from './routes';
+import {BrowserRouter} from 'react-router-dom';
 
 function App() {
 	globalStyles();
 	return (
-		<Home/>
+		<BrowserRouter>
+			<Router/>
+		</BrowserRouter>
 	);
 }
 

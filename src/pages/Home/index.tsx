@@ -35,12 +35,7 @@ export function Home() {
 
 	return (
 		<Container>
-			<Header><Button onClick={() => {
-				setMenuOpen(!menuOpen);
-			}}><List size={32} /></Button><Logo/><UserCircle size={32} /></Header>
-			<Sidebar open={menuOpen} close={() => {
-				setMenuOpen(false);
-			}}/>
+
 			{astronomicalData
 			&& <Main>
 				<div>
@@ -81,8 +76,6 @@ export function Home() {
 				</div>
 			</Main>
 			}
-			<Footer>
-      Desenvolvido por <strong>Yuri Garrido</strong>
-			</Footer>
+
 		</Container>);
 }

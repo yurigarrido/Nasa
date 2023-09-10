@@ -7,4 +7,10 @@ export namespace Astronomical {
 		copyright: string;
 		date: string;
 	};
+
+	export type NeoAsteroid = {name: string; imageUrl: string; diameter: string; isPotentiallyHazardousAsteroid: boolean; absoluteMagnitude: number;
+	};
+
+	export type Asteroids = {period: string;items: NeoAsteroid[];
+	};
 }
