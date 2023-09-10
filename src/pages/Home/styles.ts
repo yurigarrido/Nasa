@@ -95,8 +95,17 @@ export const Card = styled('div', {
 	},
 });
 
-export const Title = styled('div', {
+export const Date = styled('div', {
 	width: '30rem',
+	height: '4rem',
+	animation: `${shimmerAnimation} 2s infinite `,
+	background: '$gray3',
+	borderRadius: '$md',
+	marginBottom: '$4',
+});
+
+export const Title = styled('div', {
+	width: '50rem',
 	height: '4rem',
 	animation: `${shimmerAnimation} 2s infinite `,
 	background: '$gray3',

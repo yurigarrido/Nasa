@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Container, Main, DateContainer, Content, Card, Title, Description, Image} from './styles';
+import {Container, Main, DateContainer, Content, Card, Title, Description, Image, Date} from './styles';
 import {getAsronomicalPhoto} from '../../api/getAstronomicalPhoto';
 import {type Astronomical} from '../../models/Astronomical';
 import {PencilSimple, Check} from 'phosphor-react';
@@ -108,7 +108,7 @@ export function Home() {
 
 				:				(
 					<Card>
-						<Title/>
+						<Date/>
 						<Title/>
 
 						<Image/>
