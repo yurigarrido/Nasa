@@ -1,16 +1,18 @@
 import {useEffect, useState} from 'react';
 import {Logo} from '../../assets';
-import {Container, Header, Footer, Main, Button, DateContainer} from './styles';
+import {Container, Header, Footer, Main, Button, DateContainer, SidebarLeft} from './styles';
 import {getAsronomicalPhoto} from '../../api/getAstronomicalPhoto';
 import {type Astronomical} from '../../models/Astronomical';
 import {formatDate} from '../../utils/formatter/date';
-import {PencilSimple, Check} from 'phosphor-react';
+import {PencilSimple, Check, List, UserCircle} from 'phosphor-react';
 import moment from 'moment';
+import {Sidebar} from '../../components/sidebar';
 
 export function Home() {
 	const [astronomicalData, setAstronomicalData] = useState<Astronomical.PhotoData | undefined>(undefined);
 	const [isEditDate, setIsEditDate] = useState(false);
 	const [date, setDate] = useState('');
+	const [menuOpen, setMenuOpen] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -33,7 +35,12 @@ export function Home() {
 
 	return (
 		<Container>
-			<Header><Logo/></Header>
+			<Header><Button onClick={() => {
+				setMenuOpen(!menuOpen);
+			}}><List size={32} /></Button><Logo/><UserCircle size={32} /></Header>
+			<Sidebar open={menuOpen} close={() => {
+				setMenuOpen(false);
+			}}/>
 			{astronomicalData
 			&& <Main>
 				<div>
@@ -66,7 +73,7 @@ export function Home() {
 					<h1>{astronomicalData.title}</h1>
 
 				</div>
-				<img loading='eagger' src={astronomicalData.url} alt={astronomicalData.title} />
+				<img loading='eager' src={astronomicalData.url} alt={astronomicalData.title} />
 				<div>
 					<span>{astronomicalData.description}</span>
 					<br />

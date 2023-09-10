@@ -1,6 +1,6 @@
-- [ ] mostrar os dados da foto astronômica do dia (endpoint -> APOD) 
-  - [ ]  A foto astronômica do dia deve ser por padrão a do dia de hoje 
-  - [ ] deve conter a possibilidade de escolher outra data e ver a foto do dia em questão;
+- [x] mostrar os dados da foto astronômica do dia (endpoint -> APOD) 
+  - [x]  A foto astronômica do dia deve ser por padrão a do dia de hoje 
+  - [x] deve conter a possibilidade de escolher outra data e ver a foto do dia em questão;
 - [ ] mostrar objetos próximos à terra (endpoint -> Asteroids NeoWs);
     - [ ] um feed de notícias da última semana como uma sidebar 
     - [ ] data

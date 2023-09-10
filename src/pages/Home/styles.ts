@@ -11,7 +11,7 @@ export const Container = styled('div', {
 
 export const Header = styled('header', {
 	display: 'flex',
-	justifyContent: 'center',
+	justifyContent: 'space-between',
 	alignItems: 'center',
 	padding: '$8',
 
@@ -19,6 +19,22 @@ export const Header = styled('header', {
 
 	fontWeight: 'bold',
 	fontSize: '$4xl',
+
+	width: '100%',
+	borderBottom: '.5px solid $gray6',
+
+});
+
+export const SidebarLeft = styled('nav', {
+	borderRight: '.5px solid $gray6',
+	width: '380px',
+	height: '100%',
+
+	position: 'fixed',
+	left: '0',
+
+	background: '#2F4858',
+
 });
 
 export const Main = styled('main', {

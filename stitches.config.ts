@@ -40,6 +40,7 @@ export const {
 			gray0: '#f1f1f1',
 			blue1: '#F3F5F9',
 			blue2: '#33658A',
+			blue3: '#243742',
 			black6: '#1E1F1F',
 		},
 		space: {
