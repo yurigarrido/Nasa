@@ -5,10 +5,10 @@ export const Button = styled('button', {
 	background: 'transparent',
 	border: 'none',
 	cursor: 'pointer',
-	color: '$gray8',
+	color: '$text',
 
 	'&:hover': {
-		color: '$gray9',
+		color: '$textHover',
 		transition: '.3s ease',
 	},
 });

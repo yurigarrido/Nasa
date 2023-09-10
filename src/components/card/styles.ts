@@ -2,7 +2,9 @@
 import {styled} from '../../../stitches.config';
 
 export const Container = styled('div', {
-	background: '$white',
+	background: '$card',
+
+	color: '$cardText',
 
 	borderRadius: '$md',
 

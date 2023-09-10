@@ -13,9 +13,15 @@ export const {
 } = createStitches({
 	theme: {
 		colors: {
-			background: '#FFFFFF',
+			background: '#1C7293',
+			sidebar: '#1C7293',
+			card: '#f1f1f1',
+			cardText: '#333',
+			text: '#f1f1f1',
+			textHover: '#fff',
+			header: '#243742',
+
 			white: '#FFFFFF',
-			text: '#383838',
 			logoPrimary: '#383939',
 			logoSecondary: '#49AF3E',
 			primary1: '#103D91',
@@ -39,7 +45,7 @@ export const {
 			gray1: '#FBFBFB',
 			gray0: '#f1f1f1',
 			blue1: '#F3F5F9',
-			blue2: '#33658A',
+			blue2: '#86BBD8',
 			blue3: '#243742',
 			black6: '#1E1F1F',
 		},
@@ -158,7 +164,6 @@ export const globalStyles = globalCss({
 		fontSize: '1.6rem',
 		lineHeight: 1.5,
 		'-webkit-font-smoothing': 'antialiased',
-		background: '#2F4858',
 	},
 	button: {
 		cursor: 'pointer',
@@ -174,5 +179,46 @@ export const globalStyles = globalCss({
 	},
 	'p, h1, h2, h3, h4, h5, h6': {
 		overflowWrap: 'break-word',
+	},
+});
+
+export const darkTheme = createTheme({
+	colors: {
+		background: '#243742',
+		sidebar: '#162127',
+		card: '#162127',
+		text: '#f1f1f1',
+		cardText: '#f1f1f1',
+
+		textHover: '#A2A4A4',
+		header: '#1C7293',
+
+		white: '#FFFFFF',
+		logoPrimary: '#383939',
+		logoSecondary: '#49AF3E',
+		primary1: '#103D91',
+		primary2: '#3DB257',
+		primary3: '#D0F4CC',
+		primary4: '#E6F6E5',
+		secondary1: '#F3F5F9',
+		green1: '#B0DBA6',
+		green2: '#43B02A',
+		green3: '#399624',
+		orange: '#FF7E00',
+		danger1: '#D72B48',
+		red1: '#C23D3A',
+		gray8: '#A2A4A4',
+		gray7: '#515252',
+		gray6: '#999999',
+		gray5: '#A1A9B4',
+		gray4: '#C4C4C4',
+		gray3: '#D2D2D2',
+		gray2: '#E5E5E5',
+		gray1: '#FBFBFB',
+		gray0: '#f1f1f1',
+		blue1: '#F3F5F9',
+		blue2: '#33658A',
+		blue3: '#243742',
+		black6: '#1E1F1F',
 	},
 });

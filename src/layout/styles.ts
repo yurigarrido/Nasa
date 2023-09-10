@@ -8,6 +8,13 @@ export const Container = styled('div', {
 	alignItems: 'center',
 	flexDirection: 'column',
 
+	height: '100%',
+	width: '100%',
+
+	minHeight: '100vh',
+
+	backgroundColor: '$background',
+
 });
 
 export const Header = styled('header', {
@@ -16,14 +23,12 @@ export const Header = styled('header', {
 	alignItems: 'center',
 	padding: '$8',
 
-	color: '$red1',
-
 	fontWeight: 'bold',
 	fontSize: '$4xl',
 
 	width: '100%',
-	borderBottom: '.5px solid $gray6',
 
+	background: '$header',
 });
 
 export const SidebarLeft = styled('nav', {
@@ -73,7 +78,7 @@ export const Footer = styled('footer', {
 
 	strong: {
 		marginLeft: '$4',
-		color: '$blue2',
+		color: '$text',
 		fontWeight: 'bold',
 		fontSize: '$4xl',
 	},

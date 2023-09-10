@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import {styled} from '@stitches/react';
+
+import {styled} from '../../../stitches.config';
 
 export const Container = styled('div', {
 	display: 'flex',
@@ -7,6 +8,11 @@ export const Container = styled('div', {
 	alignItems: 'center',
 	flexDirection: 'column',
 
+});
+
+export const Content = styled('div', {
+	background: '$card',
+	color: '$cardText',
 });
 
 export const Header = styled('header', {
@@ -59,41 +65,11 @@ export const Main = styled('main', {
 
 });
 
-export const Footer = styled('footer', {
-
-	width: '100%',
-
-	color: '$white',
-
-	display: 'flex',
-	justifyContent: 'center',
-	alignItems: 'center',
-	padding: '$8',
-
-	strong: {
-		marginLeft: '$4',
-		color: '$blue2',
-		fontWeight: 'bold',
-		fontSize: '$4xl',
-	},
-
-});
-
 export const DateContainer = styled('div', {
 	display: 'flex',
 	alignItems: 'baseline',
 	flexWrap: 'wrap',
 	gap: '$4',
+
 });
 
-export const Button = styled('button', {
-	background: 'transparent',
-	border: 'none',
-	cursor: 'pointer',
-	color: '$gray7',
-
-	'&:hover': {
-		color: '$gray9',
-		transition: '.3s ease',
-	},
-});

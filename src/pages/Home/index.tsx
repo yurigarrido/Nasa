@@ -1,10 +1,11 @@
 import {useEffect, useState} from 'react';
-import {Container, Main, Button, DateContainer} from './styles';
+import {Container, Main, DateContainer, Content} from './styles';
 import {getAsronomicalPhoto} from '../../api/getAstronomicalPhoto';
 import {type Astronomical} from '../../models/Astronomical';
 import {PencilSimple, Check} from 'phosphor-react';
 import moment from 'moment';
 import toast from 'react-hot-toast';
+import {Button} from '../../components/button/styles';
 
 export function Home() {
 	const [astronomicalData, setAstronomicalData] = useState<Astronomical.PhotoData | undefined>(undefined);
@@ -46,15 +47,16 @@ export function Home() {
 
 			{astronomicalData
 			&& <Main>
-				<div>
+				<Content>
 					<DateContainer>
 						<span>Astronomical photo of the day {' '}
 							{isEditDate
 								? <><input type='date' value={date}
 									onChange={(({target}) => {
 										setDate(moment(target.value).format('YYYY-MM-DD'));
-									})}/> {' '} <Button onClick={
+									})}/> {' '} <Button css={{color: '$cardText'}} onClick={
 									saveNewDate
+
 								} title='Salvar data'>
 									<Check size={20} />
 								</Button>
@@ -63,7 +65,7 @@ export function Home() {
 									<strong>
 										{moment(currentDate).format('LL')}
 									</strong> {' '}
-									<Button onClick={() => {
+									<Button css={{color: '$cardText'}} onClick={() => {
 										setIsEditDate(true);
 									}} title='Alterar data'>
 										<PencilSimple size={20} />
@@ -75,13 +77,13 @@ export function Home() {
 
 					<h1>{astronomicalData.title}</h1>
 
-				</div>
-				<img loading='eager' src={astronomicalData.url} alt={astronomicalData.title} />
-				<div>
-					<span>{astronomicalData.description}</span>
-					<br />
+					<img loading='eager' src={astronomicalData.url} alt={astronomicalData.title} />
+					<div>
+						<span>{astronomicalData.description}</span>
+						<br />
 					copyright: {astronomicalData.copyright}
-				</div>
+					</div>
+				</Content>
 			</Main>
 			}
 

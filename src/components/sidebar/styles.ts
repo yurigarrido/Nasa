@@ -22,12 +22,12 @@ export const Menu = styled('div', {
 	gap: '$8',
 
 	height: '100%',
-	background: '$blue3',
+	background: '$sidebar',
 
 	width: '40rem',
 
 	padding: '$8',
-	color: '$white',
+	color: '$text',
 
 	'@mobile': {
 		width: '100vw',
