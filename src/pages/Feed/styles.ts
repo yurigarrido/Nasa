@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {styled} from '../../../stitches.config';
+import {shimmerAnimation} from '../../components/shimmer';
 
 export const List = styled('div', {
 	display: 'flex',
@@ -37,4 +38,35 @@ export const FeedTitle = styled('h2', {
 	padding: '$8 $4',
 	marginLeft: '-20px',
 
+});
+
+export const PeriodShimmer = styled('div', {
+	animation: `${shimmerAnimation} 2s infinite `,
+	background: '$gray3',
+	width: '20rem',
+	height: '2rem',
+	borderRadius: '$md',
+
+	marginLeft: '-80px',
+
+	margin: '$8',
+	padding: '$8',
+
+	'@mobile': {
+		width: '250px',
+	},
+});
+
+export const CardShimmer = styled('div', {
+	animation: `${shimmerAnimation} 2s infinite `,
+	background: '$gray2',
+	width: '52rem',
+	height: '12rem',
+	borderRadius: '$md',
+
+	padding: '$8',
+
+	'@mobile': {
+		width: '90%',
+	},
 });
