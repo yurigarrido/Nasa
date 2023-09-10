@@ -5,11 +5,15 @@ export const List = styled('div', {
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '$4',
+	paddingLeft: '$6',
+
+	borderLeft: '1px solid white',
 
 });
 
 export const Container = styled('div', {
 	margin: '$8',
+
 });
 
 export const Period = styled('h2', {
