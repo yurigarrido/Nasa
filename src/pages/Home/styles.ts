@@ -72,10 +72,6 @@ export const DateContainer = styled('div', {
   alignItems: 'baseline',
   flexWrap: 'wrap',
   gap: '$4',
-
-  '@mobile': {
-    width: '230px',
-  },
 })
 
 export const Card = styled('div', {
@@ -99,6 +95,10 @@ export const DateShimmer = styled('div', {
   background: '$gray3',
   borderRadius: '$md',
   marginBottom: '$4',
+
+  '@mobile': {
+    width: '230px',
+  },
 })
 
 export const Title = styled('div', {
