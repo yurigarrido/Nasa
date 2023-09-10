@@ -1,18 +1,15 @@
 import {useEffect, useState} from 'react';
-import {Logo} from '../../assets';
-import {Container, Header, Footer, Main, Button, DateContainer, SidebarLeft} from './styles';
+import {Container, Main, Button, DateContainer} from './styles';
 import {getAsronomicalPhoto} from '../../api/getAstronomicalPhoto';
 import {type Astronomical} from '../../models/Astronomical';
-import {formatDate} from '../../utils/formatter/date';
-import {PencilSimple, Check, List, UserCircle} from 'phosphor-react';
+import {PencilSimple, Check} from 'phosphor-react';
 import moment from 'moment';
-import {Sidebar} from '../../components/sidebar';
+import toast from 'react-hot-toast';
 
 export function Home() {
 	const [astronomicalData, setAstronomicalData] = useState<Astronomical.PhotoData | undefined>(undefined);
 	const [isEditDate, setIsEditDate] = useState(false);
 	const [date, setDate] = useState('');
-	const [menuOpen, setMenuOpen] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -24,11 +21,22 @@ export function Home() {
 		fetchData();
 	}, []);
 
-	const currentDate = moment(date || astronomicalData?.date).subtract('day', 1).format('YYYY-MM-DD');
+	const currentDate = moment(astronomicalData?.date).format('YYYY-MM-DD');
 
 	const saveNewDate = async () => {
+		if (moment(date).isAfter(moment(new Date()).subtract('day', 1))) {
+			toast.error('select a date smaller than today');
+			return;
+		}
+
+		if (moment(currentDate).isSame(moment(date))) {
+			toast.error('select a date other than the current one');
+			return;
+		}
+
 		setIsEditDate(false);
 		setAstronomicalData(undefined);
+		console.log(date);
 		const result = await getAsronomicalPhoto(date);
 		setAstronomicalData(result);
 	};
@@ -40,12 +48,12 @@ export function Home() {
 			&& <Main>
 				<div>
 					<DateContainer>
-						<span>Foto astronômica do dia
+						<span>Astronomical photo of the day {' '}
 							{isEditDate
 								? <><input type='date' value={date}
 									onChange={(({target}) => {
-										setDate(target.value);
-									})}/><Button onClick={
+										setDate(moment(target.value).format('YYYY-MM-DD'));
+									})}/> {' '} <Button onClick={
 									saveNewDate
 								} title='Salvar data'>
 									<Check size={20} />
@@ -53,8 +61,8 @@ export function Home() {
 								</>
 								: <>
 									<strong>
-										{formatDate(new Date(currentDate))}
-									</strong>
+										{moment(currentDate).format('LL')}
+									</strong> {' '}
 									<Button onClick={() => {
 										setIsEditDate(true);
 									}} title='Alterar data'>

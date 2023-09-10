@@ -12,15 +12,9 @@ type SidebarProps = {
 };
 
 export const Sidebar = ({open, close}: SidebarProps) => {
-	const closeMenu = () => {
-		setTimeout(() => {
-			close();
-		}, 290);
-	};
-
 	const ref = useOutsideClick(() => {
 		if (open) {
-			closeMenu();
+			close();
 		}
 	});
 	return (
@@ -32,7 +26,9 @@ export const Sidebar = ({open, close}: SidebarProps) => {
 					<Button onClick={close}><X size={24 }/></Button>
 				</MenuHeader>
 				<TabsContainer>
-					{tabs.map(tab => <Tab key={tab.id} title={tab.title} path={tab.id}/>)}
+					{tabs.map(tab => <Tab key={tab.id} title={tab.title} path={tab.id} close={() => {
+						close();
+					}}/>)}
 				</TabsContainer>
 			</Menu>
 		</PortalContainer>
