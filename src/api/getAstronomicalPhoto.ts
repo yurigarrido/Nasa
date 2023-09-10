@@ -15,7 +15,6 @@ type AstronomicalData = {
 export const getAsronomicalPhoto = async (
   date?: string,
 ): Promise<Astronomical.PhotoData> => {
-  console.log('aq', date)
   const { data } = await api.get<AstronomicalData>(
     '/planetary/apod?api_key=AXVJpg3GpMpcU3Tz7koG3PwVfbC262bztpfIy0pI',
     { params: { date: date || undefined } },
