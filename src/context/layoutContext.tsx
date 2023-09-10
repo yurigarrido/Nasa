@@ -13,6 +13,7 @@ function useLayout() {
         dark: darkTheme.className,
         light: defaultTheme.toString(), // How to be consistent?
       }
+      if (!html) return
       html.className = availableThemes[newMode]
       html.setAttribute('data-color-mode', newMode)
     },
