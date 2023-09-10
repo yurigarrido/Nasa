@@ -60,6 +60,11 @@ export const Main = styled('main', {
 
 	},
 
+	img: {
+		cursor: 'pointer',
+		margin: '$8 0',
+	},
+
 	borderRadius: '$md',
 	overflow: 'hidden',
 

@@ -6,11 +6,13 @@ import {PencilSimple, Check} from 'phosphor-react';
 import moment from 'moment';
 import toast from 'react-hot-toast';
 import {Button} from '../../components/button/styles';
+import {ImageViewer} from '../../components/imageViewer';
 
 export function Home() {
 	const [astronomicalData, setAstronomicalData] = useState<Astronomical.PhotoData | undefined>(undefined);
 	const [isEditDate, setIsEditDate] = useState(false);
 	const [date, setDate] = useState('');
+	const [openImageViewer, setOpenImageViewer] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -42,9 +44,19 @@ export function Home() {
 		setAstronomicalData(result);
 	};
 
+	const handleExpandImage = () => {
+		setOpenImageViewer(true);
+	};
+
+	const handleCloseExapandImage = () => {
+		setOpenImageViewer(false);
+	};
+
 	return (
 		<Container>
-
+			{astronomicalData
+			&& <ImageViewer open={openImageViewer} close={handleCloseExapandImage} src={astronomicalData.url}/>
+			}
 			{astronomicalData
 			&& <Main>
 				<Content>
@@ -77,7 +89,7 @@ export function Home() {
 
 					<h1>{astronomicalData.title}</h1>
 
-					<img loading='eager' src={astronomicalData.url} alt={astronomicalData.title} />
+					<img loading='eager' title='click to expand' onClick={handleExpandImage} src={astronomicalData.url} alt={astronomicalData.title} />
 					<div>
 						<span>{astronomicalData.description}</span>
 						<br />
