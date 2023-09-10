@@ -7,6 +7,15 @@ export const Button = styled('button', {
 	cursor: 'pointer',
 	color: '$text',
 
+	variants: {
+		bold: {
+			true: {
+				fontWeight: 'bold',
+				color: '#54B7DE',
+			},
+		},
+	},
+
 	'&:hover': {
 		color: '$textHover',
 		transition: '.3s ease',

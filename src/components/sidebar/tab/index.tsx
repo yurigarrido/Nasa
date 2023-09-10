@@ -1,4 +1,4 @@
-import {useNavigate} from 'react-router';
+import {useLocation, useNavigate} from 'react-router';
 import {Button} from '../../button/styles';
 
 type TabProps = {
@@ -8,8 +8,9 @@ type TabProps = {
 };
 
 export const Tab = ({title, path, close}: TabProps) => {
+	const {pathname} = useLocation();
 	const navigate = useNavigate();
-	return <Button onClick={() => {
+	return <Button bold={pathname.includes(path)} onClick={() => {
 		close();
 		navigate(path);
 	}}>{title}</Button>;
